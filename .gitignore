@@ -1,0 +1,6 @@
+
+# Gradle directory
+.gradle/
+
+# IntelliJ project directory
+.idea/
