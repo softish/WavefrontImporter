@@ -4,3 +4,8 @@
 
 # IntelliJ project directory
 .idea/
+build/
+
+# Wavefront files
+*.obj
+
