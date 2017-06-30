@@ -57,20 +57,20 @@ public class WavefrontReader {
         try {
             List<String> linesOfFile = Files.lines(path).collect(Collectors.toList());
 
-            for (String line: linesOfFile) {
+            for (int i = 0; i < linesOfFile.size(); i++) {
+                String line = linesOfFile.get(i);
                 String type = line.substring(0,2);
+                line = line.replaceAll("v |vt |vn |f ", "");
+                
                 switch (type) {
                     case "v ":
-                        Vector3D position = parseVector3D(line);
-                        modelData.addPosition(position);
+                        modelData.addPosition(parseVector3D(line));
                         break;
                     case "vt":
-                        Vector2D texel = parseVector2D(line);
-                        modelData.addTexel(texel);
+                        modelData.addTexel(parseVector2D(line));
                         break;
                     case "vn":
-                        Vector3D normal = parseVector3D(line);
-                        modelData.addNormal(normal);
+                        modelData.addNormal(parseVector3D(line));
                         break;
                     case "f ":
                         modelData.addFaces(parseFaces(line));
@@ -89,7 +89,6 @@ public class WavefrontReader {
     }
 
     public static Vector2D parseVector2D(String line) {
-        line = line.replaceAll("v |vt |vn |f ", "");
         String[] values = line.split(" ");
 
         double[] numbers = new double[values.length];
@@ -102,7 +101,6 @@ public class WavefrontReader {
     }
 
     public static Vector3D parseVector3D(String line) {
-        line = line.replaceAll("v |vt |vn |f ", "");
         String[] values = line.split(" ");
         double[] numbers = new double[values.length];
 
@@ -114,7 +112,6 @@ public class WavefrontReader {
     }
 
     public static List<Vector3D> parseFaces(String line) {
-        line = line.replaceAll("v |vt |vn |f ", "");
         List<Vector3D> faces = new ArrayList<>();
 
         String[] chunks = line.split(" ");
