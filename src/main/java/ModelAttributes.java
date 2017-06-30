@@ -2,6 +2,7 @@
  * Created by softish on 2017-06-30.
  */
 public class ModelAttributes {
+
     private int vertices;
     private int positions;
     private int texels;

@@ -14,5 +14,6 @@ public class Main {
         ModelAttributes modelAttributes = WavefrontReader.getObjInfo(filename);
 
         System.out.println(modelAttributes);
+        System.out.println(WavefrontReader.extractObjData(filename));
     }
 }
