@@ -1,5 +1,9 @@
 language: java
 
+jdk:
+  - oraclejdk8
+  - openjdk8
+
 script:
   - ./gradlew check
   - ./gradlew assemble
@@ -11,7 +15,3 @@ cache:
   directories:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
-
-jdk:
-  - oraclejdk8
-  - openjdk8
