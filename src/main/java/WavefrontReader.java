@@ -10,9 +10,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Created by softish on 2017-06-30.
+ * This class parses the wavefront file.
  */
 public class WavefrontReader {
+
+    /**
+     * Parses the model attributes.
+     *
+     * @param name the name of the model
+     * @return the attributes
+     */
     public static ModelAttributes getObjInfo(String name) {
         Path path = FileSystems.getDefault().getPath("files", name + ".obj");
 
@@ -48,7 +55,12 @@ public class WavefrontReader {
         return modelAttributes;
     }
 
-
+    /**
+     * Parses model data.
+     *
+     * @param name the model name
+     * @return the model data
+     */
     public static ModelData extractObjData(String name) {
         Path path = FileSystems.getDefault().getPath("files", name + ".obj");
 
@@ -88,6 +100,12 @@ public class WavefrontReader {
         return modelData;
     }
 
+    /**
+     * Parses 2d data (i.e. texels) form the supplied line of the file.
+     *
+     * @param line the line to parse for 2d data
+     * @return the 2d data representation
+     */
     public static Vector2D parseVector2D(String line) {
         String[] values = line.split(" ");
 
@@ -100,6 +118,12 @@ public class WavefrontReader {
         return new Vector2D(numbers);
     }
 
+    /**
+     * Parses 3d data (i.e. positions) form the supplied line of the file.
+     *
+     * @param line the line to parse for 3d data
+     * @return the 3d data representation
+     */
     public static Vector3D parseVector3D(String line) {
         String[] values = line.split(" ");
         double[] numbers = new double[values.length];
@@ -111,6 +135,12 @@ public class WavefrontReader {
         return new Vector3D(numbers);
     }
 
+    /**
+     * Parses faces form the supplied line of the file.
+     *
+     * @param line the line to parse for 3d data
+     * @return a list of faces
+     */
     public static List<Vector3D> parseFaces(String line) {
         List<Vector3D> faces = new ArrayList<>();
 

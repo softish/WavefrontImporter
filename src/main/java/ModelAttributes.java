@@ -1,5 +1,5 @@
 /**
- * Created by softish on 2017-06-30.
+ * This class represents the Wavefront model attributes.
  */
 public class ModelAttributes {
 

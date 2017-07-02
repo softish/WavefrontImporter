@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by softish on 2017-06-30.
+ * This class holds the Wavefront model data.
  */
 public class ModelData {
 
