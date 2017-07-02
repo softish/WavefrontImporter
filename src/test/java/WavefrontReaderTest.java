@@ -13,13 +13,13 @@ import static org.junit.Assert.*;
 public class WavefrontReaderTest {
     @Test
     public void parseVector3D() throws Exception {
-        Vector3D vector3D = WavefrontReader.parseVector3D("v 1.0 2.0 3.0");
+        Vector3D vector3D = WavefrontReader.parseVector3D("1.0 2.0 3.0");
         assertEquals(new Vector3D(1.0,2.0,3.0), vector3D);
     }
 
     @Test
     public void parseVector2D() throws Exception {
-        Vector2D vector2D = WavefrontReader.parseVector2D("vt 1.0 2.0");
+        Vector2D vector2D = WavefrontReader.parseVector2D("1.0 2.0");
         assertEquals(new Vector2D(1.0,2.0), vector2D);
     }
 
@@ -29,7 +29,7 @@ public class WavefrontReaderTest {
         ref.add(new Vector3D(1,3,6));
         ref.add(new Vector3D(4,2,6));
         ref.add(new Vector3D(8,4,6));
-        List<Vector3D> faces = WavefrontReader.parseFaces("f 1/3/6 4/2/6 8/4/6");
+        List<Vector3D> faces = WavefrontReader.parseFaces("1/3/6 4/2/6 8/4/6");
         assertArrayEquals(ref.toArray(), faces.toArray());
     }
 }
